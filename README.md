@@ -26,6 +26,6 @@ Visual Studio 2019, Windows 10
 ### Thanks
 
 ```
- 					J. David Blackstone
+J. David Blackstone
 ```
 

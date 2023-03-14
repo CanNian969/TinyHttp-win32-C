@@ -2,7 +2,7 @@
 
 ### Features
 
-c-program tinyhttp
+c-program  win32  tinyhttp
 
 get/post Parse、c-program CGI
 

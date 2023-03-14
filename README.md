@@ -2,7 +2,7 @@
 
 ### Features
 
-c-program tinyhttp
+c-program  win32  tinyhttp
 
 get/post Parse、c-program CGI
 
@@ -26,6 +26,6 @@ Visual Studio 2019, Windows 10
 ### Thanks
 
 ```
- 												J. David Blackstone
+J. David Blackstone
 ```
 

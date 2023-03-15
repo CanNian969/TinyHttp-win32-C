@@ -10,7 +10,7 @@ SOCKET Startup(unsigned short* port)
 {
 
 	// 1. init network-com
-	WSADATA data; // out - init data, Ò»°ãÇé¿öºöÂÔ
+	WSADATA data; // out - init data, ä¸€èˆ¬æƒ…å†µå¿½ç•¥
 	int ret = WSAStartup(MAKEWORD(1, 1), &data); // version 1.1
 	if (ret != 0)
 		return ErrorInfo("net init: ");
@@ -31,9 +31,9 @@ SOCKET Startup(unsigned short* port)
 	// 4. set server-address and bind socket to port
 	struct sockaddr_in server_addr;
 	memset(&server_addr, 0, sizeof(server_addr));
-	server_addr.sin_family = AF_INET; // ´«ÊäµØÖ·µÄµØÖ·ÏµÁĞ¡£ ´Ë³ÉÔ±Ó¦Ê¼ÖÕÉèÖÃÎªAF_INET
-	server_addr.sin_port = htons(*port);	// htons ½«u_short´ÓÖ÷»ú×Ö½ÚË³Ğò×ª»»Îª TCP/IP ÍøÂç×Ö½ÚË³Ğò (ÕâÊÇ´ó¶Ë)
-	server_addr.sin_addr.s_addr = INADDR_ANY; // °üº¬ IPv4 ´«ÊäµØÖ·µÄ IN_ADDR ½á¹¹, (ANY±íÊ¾ÈÎÒâÍøÂçip)
+	server_addr.sin_family = AF_INET; // ä¼ è¾“åœ°å€çš„åœ°å€ç³»åˆ—ã€‚ æ­¤æˆå‘˜åº”å§‹ç»ˆè®¾ç½®ä¸ºAF_INET
+	server_addr.sin_port = htons(*port);	// htons å°†u_shortä»ä¸»æœºå­—èŠ‚é¡ºåºè½¬æ¢ä¸º TCP/IP ç½‘ç»œå­—èŠ‚é¡ºåº (è¿™æ˜¯å¤§ç«¯)
+	server_addr.sin_addr.s_addr = INADDR_ANY; // åŒ…å« IPv4 ä¼ è¾“åœ°å€çš„ IN_ADDR ç»“æ„, (ANYè¡¨ç¤ºä»»æ„ç½‘ç»œip)
 
 	ret = bind(server_socket, (const struct sockaddr*)&server_addr, sizeof(server_addr));
 	if (ret != 0)
@@ -390,7 +390,7 @@ DWORD WINAPI AcceptRequest(LPVOID arg) // LPVOID == void*
 			*query_string = 0;
 			query_string++;
 		}
-		fprintf(stderr,"---------------- url: %s, query_string: %s\n", url, query_string);
+		// fprintf(stderr,"---------------- url: %s, query_string: %s\n", url, query_string);
 	}
 	else if (_stricmp(method, "post") == 0)
 	{

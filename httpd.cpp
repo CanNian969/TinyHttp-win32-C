@@ -354,7 +354,7 @@ DWORD WINAPI AcceptRequest(LPVOID arg) // LPVOID == void*
 
 	int line_size = GetLine(client, buff, bufflen);
 	PRINT(buff);
-
+	if (buff[0] == 0) return 0;
 	// GET /user/index.html HTTP / 1.1\n
 	// extracte method
 	char method[255], url[255], *query_string = NULL;
@@ -375,8 +375,6 @@ DWORD WINAPI AcceptRequest(LPVOID arg) // LPVOID == void*
 	{
 		// error promot page
 		Unimplemented(client);
-		PRINT(method);
-		printf("no method\n");
 		return 0;
 	}
 	else if (_stricmp(method, "get") == 0)
@@ -390,7 +388,6 @@ DWORD WINAPI AcceptRequest(LPVOID arg) // LPVOID == void*
 			*query_string = 0;
 			query_string++;
 		}
-		fprintf(stderr,"---------------- url: %s, query_string: %s\n", url, query_string);
 	}
 	else if (_stricmp(method, "post") == 0)
 	{
